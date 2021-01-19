@@ -1,0 +1,10 @@
+account_id = "db696a0810a566bdbe051227e4dd8bfc"
+name = "radenpixel"
+routes = ["*photo.sraden.com/*", "photo.sraden.com/*", "*radenpixel.sraden.com/*", "radenpixel.sraden.com/*"]
+type = "webpack"
+workers_dev = false
+zone_id = "faa0bcb70974d12fc9f4cffbf4d34a3d"
+
+[site]
+bucket = "./build"
+entry-point = "workers-site"
