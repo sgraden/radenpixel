@@ -1,145 +1,52 @@
 import { SRLWrapper } from "simple-react-lightbox";
-import sc from "styled-components";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
+import tileData from "./TileData";
+import Tile from "./Tile";
 
 const options = {
   buttons: {
     showDownloadButton: false,
     showAutoplayButton: false,
   },
+  thumbnails: {
+    showThumbnails: false,
+  },
 };
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: theme.palette.background.paper,
-  },
- 
-  images: {
-    maxWidth: `100%`,
-    maxHeight:  `100%`
-  },
-}));
+const ImgWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 16px;
+  @media only all and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media only all and (max-width: 400px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
-const imgFullDir = process.env.PUBLIC_URL + `/photos/full-photos/`;
-const imgThumbDir = process.env.PUBLIC_URL + `/photos/thumbnails/`;
-
-const tileData = [
-  {
-    img: "austin-dam.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "austin-skyline.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "blue.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "chin.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "clovers.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "envy.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "fishing.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "forest-squirrel.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "forgotten-wheel.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "growth.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "half-moon.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "italy-cinque.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "italy-florence.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "italy.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "moth.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "thug.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-  {
-    img: "web.jpg",
-    title: "Dog looking Thugish",
-    author: "Steven Raden",
-  },
-];
-
-// const Container = sc.div`
-
-// `;
+  a {
+    align-self: center;
+    box-shadow: 0 4px 5px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    overflow: hidden;
+    img {
+      vertical-align: bottom;
+      width: 100%;
+      height: 100%;
+      max-height: 344px;
+      object-fit: cover;
+    }
+  }
+`;
 
 function Lightbox() {
-  const classes = useStyles();
   return (
     <SRLWrapper options={options}>
-      <div className={classes.root}>
-      <GridList  className={classes.gridList} cols={6}>
+      <ImgWrapper>
         {tileData.map((tile) => (
-          <GridListTile key={tile.img} cols={tile.cols || 3}>
-            <a href={imgFullDir + tile.img}>
-              <img
-                src={imgThumbDir + tile.img}
-                alt={tile.title}
-                className={classes.images}
-              />
-            </a>
-          </GridListTile>
+          <Tile tile={tile} />
         ))}
-        </GridList>
-      </div>
+      </ImgWrapper>
     </SRLWrapper>
   );
 }
