@@ -1,6 +1,6 @@
 import { SRLWrapper } from "simple-react-lightbox";
 import styled from "styled-components";
-import tileData from "./TileData";
+import TileData from "./TileData";
 import Tile from "./Tile";
 
 const options = {
@@ -43,8 +43,8 @@ function Lightbox() {
   return (
     <SRLWrapper options={options}>
       <ImgWrapper>
-        {tileData.map((tile) => (
-          <Tile tile={tile} />
+        {TileData.map((tile, i) => (
+          <Tile key={i} tile={tile} />
         ))}
       </ImgWrapper>
     </SRLWrapper>
