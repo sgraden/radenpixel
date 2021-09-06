@@ -1,33 +1,52 @@
 import styled from "styled-components";
-import SocialBoxes from "./SocialBoxes";
-
-
 
 const Container = styled.div`
-    display: flex;
-    text-align: center;
-    justify-content: space-around;
-    height: 50vh;
-    align-items: center;
-
-    img {
-        max-width: 500px;
-        max-height: 500px;
-        border-radius: 100%;
+  text-align: center;
+  margin: 64px auto;
+  max-width: 600px;
+  line-height: 150%;
+  font-size: 20px;
+  a {
+    text-decoration: none;
+    position: relative;
+    color: #33A1DE;
+    transition: all .1s ease-in-out;
+    :after {
+      content: "";
+      background-color: #33A1DE;
+      display: block;
+      position: absolute;
+      height: 6px;
+      bottom:0;
+      left:0;
+      width: 100%;
+      opacity: 50%;
     }
+
+    :hover {
+      color: #336EDE;
+
+      :after {
+        background-color: #336EDE
+      }
+    }
+  }
 `;
 
 function PageIntro() {
   return (
     <Container>
-        <div>    
-            <img src="photos/profile.jpg" alt="Profile of Steven Raden" />
-            <h2>My name is <br /> <span>Steven Raden</span></h2>
-        </div>
-        <article>
-            <p>This is some information about me :D </p>
-            <SocialBoxes />
-        </article>
+      <article>
+        <p>
+          My name is Steven Raden. I am a photographer motivated by trying to
+          make the mundane into a memory. Capturing what is seen everyday and
+          seeing what we tend to ignore.
+        </p>
+        <p>
+          For opportunities, questions, or prints, reach out to{" "}
+          <a href="mailto:photo@sraden.com">photo@sraden.com</a>
+        </p>
+      </article>
     </Container>
   );
 }

@@ -9,6 +9,7 @@ import styled from "styled-components";
 
 const PageContainer = styled.div`
   margin: 1rem;
+  margin-top: 128px;
 `;
 
 function App() {

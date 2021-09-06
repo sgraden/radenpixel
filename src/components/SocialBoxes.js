@@ -3,13 +3,15 @@ import {SocialIcon} from "react-social-icons";
 
 
 const Container = styled.div`
-
+  width: 24px;
+  height: 24px;
+  display: inline-block;
 `;
 
-function SocialBoxes() {
+function SocialBoxes(props) {
   return (
     <Container>
-        <SocialIcon url="https://www.instagram.com/radenpixel/" />
+        <SocialIcon url="https://www.instagram.com/radenpixel/" style={{ height: 32, width: 32 }}/>
     </Container>
   );
 }
