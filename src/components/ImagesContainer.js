@@ -41,13 +41,20 @@ const ImgWrapper = styled.div`
 
 function Lightbox() {
   return (
-    <SRLWrapper options={options}>
-      <ImgWrapper>
-        {TileData.map((tile, i) => (
-          <Tile key={i} tile={tile} />
-        ))}
-      </ImgWrapper>
-    </SRLWrapper>
+    <>
+      {[...TileData.keys()].map((value, key) => (
+        <>
+        <h2>{value}</h2>
+        <SRLWrapper key={key} options={options}>
+          <ImgWrapper>
+            {TileData.get(value).map((tile, i) => (
+              <Tile key={i} tile={tile} />
+            ))}
+          </ImgWrapper>
+        </SRLWrapper>
+        </>
+      ))}
+    </>
   );
 }
 

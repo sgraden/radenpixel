@@ -11,7 +11,7 @@ const Container = styled.div`
 function SocialBoxes(props) {
   return (
     <Container>
-        <SocialIcon url="https://www.instagram.com/radenpixel/" style={{ height: 32, width: 32 }}/>
+        <SocialIcon url="https://www.instagram.com/sradenphoto/" style={{ height: 32, width: 32 }}/>
     </Container>
   );
 }
