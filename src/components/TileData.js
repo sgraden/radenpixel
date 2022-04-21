@@ -107,7 +107,7 @@ tileData.set('Portraits', [
     img: 'PC Class-4.jpg',
     title: 'Model in western attire sitting on a wood walkway with luggage',
     author: 'Steven Raden',
-    imgPosition: '0px 0px',
+    imgPosition: '0px 0px', 
     cols: 2,
   },
 ]);
